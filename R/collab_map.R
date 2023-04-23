@@ -106,7 +106,8 @@ df <- read_csv("data//locations.csv")
 #Add extra alabama folks (n = 10; Jon, Carla, Arial, Christie, Matt, DMP)
 df <- bind_rows(
   df, 
-  df %>% slice(rep(9,10))
+  df %>% slice(rep(9,10)), 
+  df %>% slice(rep(5,5))
 )
 
 #Create pnts shape
@@ -159,6 +160,7 @@ ggplot()+
   xlab(NULL) +ylab(NULL) + 
   guides(fill = "none", alpha = "none")
 
-
+#print
+ggsave("docs/c_map.png", width =7.5, height=5, units="in")
 
   
